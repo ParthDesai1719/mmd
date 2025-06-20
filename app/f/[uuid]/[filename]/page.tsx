@@ -1,4 +1,4 @@
-// app/f/[uuid]/[filename]/page.ts
+
 
 import { getMetadata } from "@/lib/metadata";
 import { notFound } from "next/navigation";
