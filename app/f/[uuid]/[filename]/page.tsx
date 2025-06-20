@@ -1,4 +1,3 @@
-// Update the import path if the file is actually at 'mmd/lib/metadata' (without .ts extension)
 import { getMetadata } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 
