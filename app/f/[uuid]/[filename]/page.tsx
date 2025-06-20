@@ -1,7 +1,11 @@
+// app/f/[uuid]/[filename]/page.ts
+
 import { getMetadata } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 
-export default async function FilePage({ params }: {
+export default async function FilePage({
+  params,
+}: {
   params: { uuid: string; filename: string };
 }) {
   const { uuid, filename } = params;
@@ -45,3 +49,4 @@ export default async function FilePage({ params }: {
     </div>
   );
 }
+
