@@ -8,12 +8,13 @@ type Props = {
   };
 };
 
-export default function FilePage({ params }: Props) {
+export default async function FilePage({ params }: Props) {
   const { uuid, filename } = params;
 
-  const meta = getMetadata(uuid);
+  const meta = await getMetadata(uuid); // ✅ Await async metadata call
+
   if (!meta || meta.filename !== filename) {
-    return notFound();
+    return notFound(); // ✅ Early return for 404
   }
 
   const downloadUrl = `${process.env.R2_PUBLIC_URL}/${uuid}/${filename}`;
@@ -49,3 +50,4 @@ export default function FilePage({ params }: Props) {
     </div>
   );
 }
+s
