@@ -29,9 +29,3 @@ export const ourFileRouter = {
 
 export type OurFileRouter = typeof ourFileRouter;
 
-// Export handler required by UploadThing (default export for App Router)
-import { createRouteHandler } from "uploadthing/next";
-
-export const { GET, POST } = createRouteHandler({
-  router: ourFileRouter,
-});
