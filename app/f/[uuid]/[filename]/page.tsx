@@ -1,20 +1,15 @@
 import { getMetadata } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 
-type Props = {
-  params: {
-    uuid: string;
-    filename: string;
-  };
-};
-
-export default async function FilePage({ params }: Props) {
+export default async function FilePage({ params }: {
+  params: { uuid: string; filename: string };
+}) {
   const { uuid, filename } = params;
 
-  const meta = await getMetadata(uuid); // ✅ Await async metadata call
+  const meta = await getMetadata(uuid);
 
   if (!meta || meta.filename !== filename) {
-    return notFound(); // ✅ Early return for 404
+    return notFound();
   }
 
   const downloadUrl = `${process.env.R2_PUBLIC_URL}/${uuid}/${filename}`;
@@ -50,4 +45,3 @@ export default async function FilePage({ params }: Props) {
     </div>
   );
 }
-s
